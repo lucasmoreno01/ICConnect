@@ -1,13 +1,10 @@
+import LoginAside from "../../components/LoginAside";
 import "./styles.css";
 
-function App() {
+function Login() {
   return (
     <main>
-      <aside>
-        <h1>ICConect</h1>
-        <p>Sistema de Apoio ao Estudante do IC UFBA</p>
-      </aside>
-
+      <LoginAside />
       <section aria-labelledby="login-title">
         <h2 id="login-title">Login</h2>
         <form>
@@ -27,4 +24,4 @@ function App() {
   );
 }
 
-export default App;
+export default Login;
