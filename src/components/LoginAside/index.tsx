@@ -6,7 +6,6 @@ export default function LoginAside() {
         <h1>ICConect</h1>
         <p>Sistema de Apoio ao Estudante do IC UFBA</p>
       </aside>
-      
     </>
   );
 }

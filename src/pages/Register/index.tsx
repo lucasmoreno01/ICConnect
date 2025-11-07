@@ -2,26 +2,31 @@ import LoginAside from "../../components/LoginAside";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
 
-function Login() {
+export default function Register() {
   const navigate = useNavigate();
   return (
     <main>
       <LoginAside />
       <section aria-labelledby="login-title">
-        <h2 id="login-title">Login</h2>
+        <h2 id="login-title">Cadastro</h2>
         <form>
           <label>
-            Usuário
+            Nome Completo
             <input type="text" name="usuario" placeholder="Login" />
+          </label>
+          <label >
+            <span>E-mail <strong >UFBA</strong></span>
+            <input type="email" name="email" placeholder="E-mail" />
           </label>
           <label>
             Senha
             <input type="password" name="senha" placeholder="Senha" />
           </label>
-          <button id="login-button" type="submit">
-            Entrar
-          </button>
-          <button id="register-button" onClick={() => navigate("/register")}>
+          <label>
+            Confirmar Senha
+            <input type="password" name="confirmar-senha" placeholder="Senha" />
+          </label>
+          <button id="register-button" onClick={() => navigate("/login")}>
             Cadastre-se
           </button>
         </form>
@@ -29,5 +34,3 @@ function Login() {
     </main>
   );
 }
-
-export default Login;
