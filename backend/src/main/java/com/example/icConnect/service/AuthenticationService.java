@@ -1,7 +1,6 @@
 package com.example.icConnect.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,7 +12,7 @@ import com.example.icConnect.repository.UserRepository;
 public class AuthenticationService implements UserDetailsService {
 
     @Autowired
-    UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public AuthenticationService(UserRepository userRepository) {
         this.userRepository = userRepository;

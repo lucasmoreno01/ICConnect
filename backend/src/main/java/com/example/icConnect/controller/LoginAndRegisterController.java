@@ -19,6 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import com.example.icConnect.security.TokenConfig;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -33,10 +34,13 @@ public class LoginAndRegisterController {
 
     private final AuthenticationManager authenticationManager;
 
-    public LoginAndRegisterController(UserRepository alunoRepository, PasswordEncoder passwordEncoder, AuthenticationManager authenticationManager) {
+    private final TokenConfig tokenConfig;
+
+    public LoginAndRegisterController(UserRepository alunoRepository, PasswordEncoder passwordEncoder, AuthenticationManager authenticationManager, TokenConfig tokenConfig) {
         this.alunoRepository = alunoRepository;
         this.passwordEncoder = passwordEncoder;
         this.authenticationManager = authenticationManager;
+        this.tokenConfig = tokenConfig;
     }
 
     @PostMapping("/login")
@@ -46,7 +50,10 @@ public class LoginAndRegisterController {
 
         Authentication authentication = authenticationManager.authenticate(userAndPassword);
 
-        return null;
+        Aluno loggedAluno = (Aluno) authentication.getPrincipal();
+        String token = tokenConfig.generateToken(loggedAluno);
+        return ResponseEntity.ok(new LoginResponseDTO(token));
+
     }
 
     @PostMapping("/register")
