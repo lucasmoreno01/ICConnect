@@ -10,10 +10,7 @@ function Login() {
       <section aria-labelledby="login-title">
         <h2 id="login-title">Login</h2>
         <form>
-          <label>
-            Usuário
-            <input type="text" name="usuario" placeholder="Login" />
-          </label>
+   
           <label>
             Senha
             <input type="password" name="senha" placeholder="Senha" />

@@ -1,4 +1,4 @@
-import "./Styles.css"
+import "./Styles.css";
 export default function LoginAside() {
   return (
     <>

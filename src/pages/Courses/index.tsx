@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import "./style.css"
+import "./Styles.css"
 import Header from "../../components/Header/Header";
 import arrow_down from "../../assets/arrow_down.svg";
 import search from "../../assets/search.svg";

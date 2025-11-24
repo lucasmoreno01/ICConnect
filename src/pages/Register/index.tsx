@@ -1,5 +1,5 @@
 import LoginAside from "../../components/LoginAside";
-import "./styles.css";
+import "./Styles.css";
 import { useNavigate } from "react-router-dom";
 
 export default function Register() {
