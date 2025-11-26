@@ -1,5 +1,15 @@
-.profile-menu {
-  margin: 24px 36px;
+.section-inactive {
+  display: none;
+}
+#profile-page {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  margin: 36px;
+}
+
+#profile-menu {
+  margin-right: 36px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,25 +22,102 @@
   flex-wrap: wrap;
 }
 
-.profile-menu button{
+#profile-menu button {
   padding: 12px 24px;
-  background-color: #fff;
   border: none;
   border-radius: 16px;
   font-weight: 600;
   width: 100%;
-
 }
 
-.profile-menu button.active{
+#profile-menu button.active {
   color: #fff;
   background-color: #454545;
 }
+#profile-menu button.inactive {
+  color: #454545;
+  background-color: #fff;
+}
 
-.exit-button{
-  border: none;
+.exit-button {
   background-color: transparent;
-  color: #E23A26;
+  border: none;
+  color: #e23a26;
   font-weight: bold;
+}
 
+.section-active {
+  background-color: #e3e3e3;
+  border-radius: 24px;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-active #app-input-label {
+  width: 100%;
+  padding: 12px 40px;
+}
+
+.profile-btns {
+  padding: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile-btns button {
+  padding: 12px 36px;
+  border-radius: 16px;
+  border: none;
+  color: white;
+  font-weight: 600;
+}
+
+#save-btn {
+  background-color: #57ae46;
+}
+
+#delete-btn {
+  background-color: #e23a26;
+}
+
+@media (max-width: 900px) {
+  #profile-page {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  #profile-menu {
+    flex-direction: row;
+    max-width: 100%;
+    width: 100%;
+    padding: 16px;
+    justify-content: space-between;
+    margin-right: 0;
+  }
+
+  #profile-menu button {
+    font-size: 18px;
+    width: auto;
+  }
+
+  .section-active {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  #profile-menu {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  #profile-menu button {
+    width: 100%;
+  }
 }

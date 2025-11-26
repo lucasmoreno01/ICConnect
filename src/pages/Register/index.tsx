@@ -1,3 +1,4 @@
+import AppInput from "../../components/AppInput";
 import LoginAside from "../../components/LoginAside";
 import "./Styles.css";
 import { useNavigate } from "react-router-dom";
@@ -10,22 +11,31 @@ export default function Register() {
       <section aria-labelledby="login-title">
         <h2 id="login-title">Cadastro</h2>
         <form>
-          <label>
-            Nome Completo
-            <input type="text" name="usuario" placeholder="Login" />
-          </label>
-          <label >
-            <span>E-mail <strong >UFBA</strong></span>
-            <input type="email" name="email" placeholder="E-mail" />
-          </label>
-          <label>
-            Senha
-            <input type="password" name="senha" placeholder="Senha" />
-          </label>
-          <label>
-            Confirmar Senha
-            <input type="password" name="confirmar-senha" placeholder="Senha" />
-          </label>
+          <AppInput
+            type="text"
+            name="user-input"
+            placeholder="Seu nome completo"
+            label="Nome"
+          />
+          <AppInput
+            type="email"
+            name="email-input"
+            placeholder="E-mail UFBA"
+            label="E-mail UFBA"
+          />
+          <AppInput
+            type="password"
+            name="password-input"
+            placeholder="Senha"
+            label="Senha"
+          />
+          <AppInput
+            type="password"
+            name="confirm-password-input"
+            placeholder="Confirme sua Senha"
+            label="Confirmar senha"
+          />
+
           <button id="register-button" onClick={() => navigate("/login")}>
             Cadastre-se
           </button>
