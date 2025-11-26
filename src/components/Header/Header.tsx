@@ -21,7 +21,7 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link to="/vagas" className="menu-links">
+            <Link to="/vacancies" className="menu-links">
               Vagas
             </Link>
           </li>

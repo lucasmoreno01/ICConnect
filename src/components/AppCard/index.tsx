@@ -3,7 +3,7 @@ import "./Styles.css";
 
 export default function AppCard(props: {
   title: string;
-  label: string;
+  label?: string;
   content: string;
   onClick?: MouseEventHandler<HTMLDivElement>;
 }): JSX.Element {
@@ -13,7 +13,11 @@ export default function AppCard(props: {
         <h2>{props.title}</h2>
         <p id="label-left">{props.label}</p>
       </div>
-      <p className="content">{props.content}</p>
+      <p
+        className="content"
+        dangerouslySetInnerHTML={{ __html: props.content }}
+      >
+      </p>
     </div>
   );
 }

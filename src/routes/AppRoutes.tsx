@@ -4,6 +4,7 @@ import Register from "../pages/Register";
 import Courses from "../pages/Courses";
 import Profile from "../pages/Profile";
 import Events from "../pages/Events";
+import Vacancies from "../pages/Vacancies";
 
 export default function AppRoutes() {
   return (
@@ -15,6 +16,7 @@ export default function AppRoutes() {
         <Route path="/courses" element={<Courses />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/vacancies" element={<Vacancies />} />
       </Routes>
     </BrowserRouter>
   );
