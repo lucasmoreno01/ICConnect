@@ -15,19 +15,21 @@
   align-items: center;
   justify-content: space-around;
   background-color: #e3e3e3;
-  max-width: 300px;
-  max-height: 300px;
+  width: 20%;
+  max-height: 400px;
   border-radius: 24px;
   font-size: 24px;
   flex-wrap: wrap;
+  padding: 24px;
 }
 
 #profile-menu button {
-  padding: 12px 24px;
+  padding: 12px;
   border: none;
   border-radius: 16px;
   font-weight: 600;
   width: 100%;
+  margin: 12px 0;
 }
 
 #profile-menu button.active {

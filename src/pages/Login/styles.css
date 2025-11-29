@@ -59,7 +59,7 @@ form button {
 }
 
 @media (max-width: 1024px), (max-height: 500px) {
-  main aside {
+  main #login-aside {
     display: none;
   }
 

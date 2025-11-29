@@ -1,5 +1,5 @@
 
-aside {
+#login-aside {
   background-color: #f6bb39;
   padding: 0 32px;
   height: 100%;
@@ -9,13 +9,15 @@ aside {
   justify-content: space-around;
 }
 
-aside h1 {
+#login-aside h1 {
   font-size: clamp(32px, 6vw, 96px);
+  font-weight: 700;
   margin-bottom: 1rem;
   color: #454545;
 }
 
-aside p {
+#login-aside p {
   font-size: clamp(24px, 4vw, 80px);
   font-weight: bold;
+  color: #fff;
 }
