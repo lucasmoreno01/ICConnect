@@ -1,12 +1,17 @@
 package com.example.icConnect.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.util.List;
+
+import org.hibernate.annotations.ManyToAny;
 
 @Entity
 @Table(name = "Materia")
@@ -26,7 +31,17 @@ public class Materia {
 
     private String semestre;
 
+    @ManyToMany
+    @JoinTable(
+        name = "Materia_Professor",
+        joinColumns = @jakarta.persistence.JoinColumn(name = "materia_id"),
+        inverseJoinColumns = @jakarta.persistence.JoinColumn(name = "professor_id")
+    )
     private List<Professor> professores;
+
+    @OneToMany(mappedBy = "materia")
+    private List<Arquivo> arquivos;
+
 
     
     
