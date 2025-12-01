@@ -14,7 +14,7 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 @Component
 public class TokenConfig {
 
-    private final String secret = "secret";
+    private final String secret = "8a81e4c2f9fe3cbe4c55732ba6dbaace12fca92f8b73364eea96bc91";
 
     Algorithm algorithm = Algorithm.HMAC256(secret);
 
@@ -30,7 +30,6 @@ public class TokenConfig {
 
     public Optional<JWTUserData> validadeToken(String token) { 
         try{
-            Algorithm algorithm = Algorithm.HMAC256(secret);
             DecodedJWT decodedJWT = JWT.require(algorithm).build().verify(token);
             return Optional.of(
                 JWTUserData.builder()

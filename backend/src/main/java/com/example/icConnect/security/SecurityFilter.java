@@ -1,6 +1,8 @@
 package com.example.icConnect.security;
 
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Optional;
 
 import org.apache.logging.log4j.util.Strings;
@@ -29,14 +31,20 @@ public class SecurityFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
     
             String authorizationHeader = request.getHeader("Authorization");
+
             if(Strings.isNotEmpty(authorizationHeader) && authorizationHeader.startsWith("Bearer ")) {
+
                 String token = authorizationHeader.substring(7);
                 Optional<JWTUserData> optUser = tokenConfig.validadeToken(token);
+
                 if (optUser.isPresent()) {
                     JWTUserData userData = optUser.get();
-                    UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userData, null, null);
+
+                    UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userData, null, Collections.emptyList());
+
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                 }
+                
                 filterChain.doFilter(request, response);
             }
 

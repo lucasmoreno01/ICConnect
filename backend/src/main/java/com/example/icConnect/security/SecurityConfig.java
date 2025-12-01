@@ -13,7 +13,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import com.example.icConnect.security.SecurityFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -36,6 +35,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/auth/login", "/auth/register").permitAll()
                 .anyRequest()
                 .authenticated())
+                .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
 
     }
