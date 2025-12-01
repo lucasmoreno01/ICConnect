@@ -31,6 +31,7 @@ public class Aluno implements UserDetails {
     this.matricula = matricula;
     this.password = password;
     this.name = name;
+    this.role = UserRole.STUDENT;
 }
 
     @Id
@@ -50,11 +51,15 @@ public class Aluno implements UserDetails {
 
     private String course;
 
+    @Enumerated(EnumType.STRING)
     private UserRole role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_" + role.GetRole().toUpperCase()));
+        if (role == null) {
+            return List.of();
+        }   
+        return List.of(new SimpleGrantedAuthority("ROLE_" + role.name().toUpperCase()));
     }
     
     @Override

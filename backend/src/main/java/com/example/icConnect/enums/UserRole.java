@@ -1,17 +1,19 @@
 package com.example.icConnect.enums;
 
 public enum UserRole {
-    ADMIN("Admin"),
+    ADMIN("ADMIN"),
 
-    STUDENT("Aluno");
-    
-    private String role;
+    STUDENT("ALUNO");
+
+    private final String role;
 
     UserRole(String role) {
         this.role = role;
     }
-    
-    public String GetRole() {
+
+    public String getRole() {
         return role;
     }
+
+    
 }

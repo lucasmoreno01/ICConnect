@@ -20,6 +20,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import com.example.icConnect.security.TokenConfig;
+import java.time.Instant;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -52,7 +53,15 @@ public class LoginAndRegisterController {
 
         Aluno loggedAluno = (Aluno) authentication.getPrincipal();
         String token = tokenConfig.generateToken(loggedAluno);
-        return ResponseEntity.ok(new LoginResponseDTO(token));
+        Instant expiresAt = Instant.now().plusSeconds(86400);
+        return ResponseEntity.ok(new LoginResponseDTO(token, 
+            loggedAluno.getId(),
+            loggedAluno.getEmail(),
+            loggedAluno.getName(),
+            loggedAluno.getRole().name(),
+            loggedAluno.getMatricula(),
+            expiresAt
+        ));
 
     }
 
