@@ -1,70 +1,145 @@
-.header{
-    display: flex;
-    justify-content: space-between;
-    background-color: #F6BB39;
-    height: 8vh;
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f6bb39;
+  height: 8vh;
+  align-items: center;
+  padding: 0 24px;
 }
 
-.box-title{  
-    font-family: Inter !important;
-    font-weight: 200;
-    font-style: Italic;
-    font-size: 20px;
-    align-self: center;
-    margin-left: 60px;
+.box-title {
+  font-family: Inter !important;
+  font-weight: 200;
+  font-style: Italic;
+  font-size: 20px;
+  margin-left: 60px;
 }
 
-.menu{
- align-self: center;
- height: 30px;
+.menu {
+  align-self: center;
+  height: 30px;
 }
 
-.menu-options{
-    display: flex;
-    gap: 20px;
-    list-style: none; 
-    font-family: Inter;
-    font-weight: 400;
-    font-size: 20px;
-    margin-right: 60px;
+.menu-options {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 20px;
+  margin-right: 60px;
 }
 
-
-
-.menu-links{
-    text-decoration: none;
-    color: black;
+.menu-links {
+  text-decoration: none;
+  color: black;
 }
 
-.menu-links:link{
-    color: black;
+.menu-links:link {
+  color: black;
 }
 
-.menu-links:active{
-   font-weight: 700; 
-   color: black;
+.menu-links:active {
+  font-weight: 700;
+  color: black;
 }
 
-.menu-links:visited{
-   font-weight: 700; 
-   color: black;
+.menu-links:visited {
+  font-weight: 700;
+  color: black;
 }
 
-.menu-links:hover{
-   font-weight: 700;  
-   color: black;
+.menu-links:hover {
+  font-weight: 700;
+  color: black;
 }
 
-@media (max-width: 1600px), (max-height: 1000px)  {
-  .header{
+.menu-btn {
+  display: none;
+  background: none;
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background: white;
+  transition: right 0.3s;
+  z-index: 8;
+  padding: 24px;
+}
+
+.menu-overlay.show {
+  right: 0;
+}
+
+.close-btn {
+  background: none;
+  font-size: 40px;
+  border: none;
+  position: absolute;
+  right: 24px;
+  top: 20px;
+}
+
+.menu-full {
+  margin-top: 80px;
+}
+
+.menu-full ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-full li {
+  width: 100%;
+  padding: 16px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.menu-full a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  width: 100%;
+}
+
+.arrow {
+  font-size: 20px;
+}
+
+@media (max-width: 700px) {
+  .menu-options {
+    display: none;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+}
+
+@media (max-width: 1600px), (max-height: 1000px) {
+  .header {
     height: 80px;
   }
 
-  .box-title{
-     font-size: 10px;
+  .box-title {
+    font-size: 10px;
   }
 
-  .menu-options{
+  .menu-options {
     font-size: 14px;
     margin-right: 30px;
   }
