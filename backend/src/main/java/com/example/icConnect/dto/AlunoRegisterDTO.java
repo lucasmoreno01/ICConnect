@@ -5,6 +5,6 @@ import jakarta.validation.constraints.NotEmpty;
 
 public record AlunoRegisterDTO(@Email @NotEmpty String email,
                                       @NotEmpty String password,
-                                      @NotEmpty String matricula, String nome) {
+                                      @NotEmpty String matricula, String name) {
     
 }

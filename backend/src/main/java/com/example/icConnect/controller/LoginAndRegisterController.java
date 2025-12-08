@@ -74,7 +74,8 @@ public class LoginAndRegisterController {
         Aluno newAluno = new Aluno();
         newAluno.setEmail(alunoDTO.email());
         newAluno.setMatricula(alunoDTO.matricula());
-        newAluno.setName(passwordEncoder.encode(alunoDTO.password()));
+        newAluno.setName(alunoDTO.name()); 
+        newAluno.setPassword(passwordEncoder.encode(alunoDTO.password()));
         alunoRepository.save(newAluno);
 
         RegisterResponseDTO registerResponseDTO = new RegisterResponseDTO(

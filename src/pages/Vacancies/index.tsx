@@ -8,7 +8,7 @@ export default function Vacancies() {
       <Header />
 
       <main id="vacancies">
-        <h1>Eventos</h1>
+        <h1>Vagas</h1>
         <div className="event-cards">
           <AppCard
             title="Desenvolvedor Mobile JR"

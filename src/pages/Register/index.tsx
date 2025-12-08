@@ -1,6 +1,6 @@
 import AppInput from "../../components/AppInput";
 import LoginAside from "../../components/LoginAside";
-import "./Styles.css";
+import "./styles.css";
 import { useNavigate } from "react-router-dom";
 
 export default function Register() {
