@@ -1,0 +1,90 @@
+/* tamanho geral do carrossel */
+#mainCarousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* organiza imagem e texto lado a lado */
+.slide-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    height: 100%;
+    padding: 40px;
+}
+
+/* imagem grande */
+.slide-image {
+  width: 50%;
+  height: 60%; /* aumente aqui: 350, 400, 450... */
+  object-fit: cover; /* preenche o espaço sem distorcer */
+  border-radius: 16px;
+}
+
+
+/* texto */
+.slide-text {
+    max-width: 450px;
+}
+
+.slide-text h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.slide-text p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+/* botões */
+.btn-primary {
+    background-color: #0056b3;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+.icon-prev{
+    background-image: url(../../assets/prev.svg) !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.icon-next{
+    background-image: url(../../assets/next.svg) !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    filter: none !important;
+    width: 40px !important;
+    height: 40px !important;
+}
+
+.links-home {
+    color: white;
+    text-decoration: none;
+}
+
+/* responsivo */
+@media (max-width: 768px) {
+    .slide-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .slide-image {
+        width: 250px;
+        height: 250px;
+    }
+}
