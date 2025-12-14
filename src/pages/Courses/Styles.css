@@ -144,12 +144,11 @@ html, body {
   border-radius: 24px;
   align-items: flex-start;
   text-decoration: none;
-  box-shadow: 2px -1px 1px 1px rgba(148, 144, 144, 0.5);
   box-sizing: border-box;
 }
 
 .course-link:hover{
-  border: 1px solid #9c9898;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .course-card{
