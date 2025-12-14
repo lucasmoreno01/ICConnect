@@ -21,7 +21,7 @@ export default function Carousel() {
                         <div className="slide-text">
                             <h1>Organize seu semestre com facilidade</h1>
                             <p>
-                                Descubra todas as matérias disponíveis, visualize por semestre e consulte informações completas como carga horária, ementa e pré-requisitos.
+                                Descubra todas as matérias do curso, visualize por semestre e consulte diversas informações como carga horária, ementa e professores. Visualize e colabore com comentários sobre os professores e avaliações de cada matéria.
                             </p>
                             <Link to={"/courses"} className="btn btn-primary links-home">Ver matérias</Link>
                         </div>

@@ -188,7 +188,7 @@ html, body {
   box-sizing: border-box;
 }
 
-@media (max-width: 1600px), (max-height: 1000px) {
+@media (max-width: 1200px), (max-height: 1000px) {
   .top-box{
     height: 10vh;
   }
@@ -252,7 +252,7 @@ html, body {
 
 }
 
-@media (max-width: 1600px){
+@media (max-width: 1200px){
 
   .graduacao-box{
     width: min(60%, 400px);
@@ -278,6 +278,7 @@ html, body {
     justify-content: center;
     text-align: center;
     margin-bottom: 10px;
+    margin-top: 20px;
   }
   .course-link{
     flex-direction: column;
@@ -287,7 +288,7 @@ html, body {
   }
 
   .course-title{
-    font-size: 15px;
+    font-size: 20px;
   }
 
   .course-name{
