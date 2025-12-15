@@ -36,4 +36,8 @@ public class FileStorageService {
 
         return "/materia-" + materiaId + "/" + nomeSalvo;
     }
+
+    public String getBaseUploadDir() {
+        return baseUploadDir;
+    }
 }
