@@ -27,29 +27,39 @@ public class SecurityFilter extends OncePerRequestFilter {
     }
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-            throws ServletException, IOException {
-    
-            String authorizationHeader = request.getHeader("Authorization");
+protected void doFilterInternal(HttpServletRequest request,
+                                HttpServletResponse response,
+                                FilterChain filterChain)
+        throws ServletException, IOException {
 
-            if(Strings.isNotEmpty(authorizationHeader) && authorizationHeader.startsWith("Bearer ")) {
+    String path = request.getRequestURI();
 
-                String token = authorizationHeader.substring(7);
-                Optional<JWTUserData> optUser = tokenConfig.validadeToken(token);
-
-                if (optUser.isPresent()) {
-                    JWTUserData userData = optUser.get();
-
-                    UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userData, null, Collections.emptyList());
-
-                    SecurityContextHolder.getContext().setAuthentication(authentication);
-                }
-                
-                filterChain.doFilter(request, response);
-            }
-
-            else {
-                filterChain.doFilter(request, response);
-            } 
+    if (path.startsWith("/auth")) {
+        filterChain.doFilter(request, response);
+        return;
     }
+
+    String authorizationHeader = request.getHeader("Authorization");
+
+    if (Strings.isNotEmpty(authorizationHeader) && authorizationHeader.startsWith("Bearer ")) {
+        String token = authorizationHeader.substring(7);
+        Optional<JWTUserData> optUser = tokenConfig.validadeToken(token);
+
+        if (optUser.isPresent()) {
+            JWTUserData userData = optUser.get();
+
+            UsernamePasswordAuthenticationToken authentication =
+                new UsernamePasswordAuthenticationToken(
+                    userData,
+                    null,
+                    Collections.emptyList()
+                );
+
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+        }
+    }
+
+    filterChain.doFilter(request, response);
+}
+
 }
