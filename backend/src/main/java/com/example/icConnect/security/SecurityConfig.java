@@ -14,6 +14,10 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.example.icConnect.service.AuthenticationService;
+
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -32,6 +36,7 @@ public class SecurityConfig {
             .cors(cors -> cors.configure(httpSecurity))
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(authorize -> authorize
+                .requestMatchers("/error").permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/login", "/auth/register").permitAll()
                 .requestMatchers("/course/**").permitAll()   // liberar requests do course
                 .requestMatchers("/admin/**").hasRole("ADMIN") //Possíveis futuros endpoints de admin
@@ -52,5 +57,16 @@ public class SecurityConfig {
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
+
+    @Bean
+public DaoAuthenticationProvider authenticationProvider(
+        AuthenticationService authenticationService,
+        PasswordEncoder passwordEncoder) {
+
+    DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+    provider.setUserDetailsService(authenticationService);
+    provider.setPasswordEncoder(passwordEncoder);
+    return provider;
+}
     
 }

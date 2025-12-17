@@ -6,7 +6,6 @@ public record LoginResponseDTO(
     Long id,
     String email,
     String name,
-    String role,
     String matricula,
     Instant expiresAt
 ) {}

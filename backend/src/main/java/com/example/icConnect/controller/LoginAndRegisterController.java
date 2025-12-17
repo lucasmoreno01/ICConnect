@@ -58,7 +58,6 @@ public class LoginAndRegisterController {
             loggedAluno.getId(),
             loggedAluno.getEmail(),
             loggedAluno.getName(),
-            loggedAluno.getRole().name(),
             loggedAluno.getMatricula(),
             expiresAt
         ));

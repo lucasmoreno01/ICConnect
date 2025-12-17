@@ -1,8 +1,8 @@
 package com.example.icConnect.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.security.core.userdetails.UserDetails;
+import java.util.Optional;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.icConnect.model.Aluno;
 
 public interface UserRepository extends JpaRepository<Aluno, Long> {
@@ -11,6 +11,6 @@ public interface UserRepository extends JpaRepository<Aluno, Long> {
 
     boolean existsByEmail(String email);   
 
-    UserDetails findByEmail(String email);
+    Optional<Aluno> findByEmail(String email);
 
 }

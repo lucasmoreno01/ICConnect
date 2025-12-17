@@ -14,6 +14,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
@@ -38,6 +40,7 @@ public class Aluno implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String name;
     
     @Column(unique = true, nullable = false)
@@ -53,6 +56,7 @@ public class Aluno implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     private UserRole role;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
