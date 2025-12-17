@@ -22,8 +22,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.example.icConnect.dto.ArquivoDTO;
+import com.example.icConnect.model.Aluno;
 import com.example.icConnect.model.Arquivo;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -52,31 +54,43 @@ public class FileController {
     
 
 
-    @PostMapping("/upload/{materiaId}/{alunoId}")
-    public ResponseEntity<?> upload(@PathVariable Long materiaId, @PathVariable Long alunoId, @RequestParam("file") MultipartFile file) {
+    @PostMapping("/upload/{materiaId}")
+    public ResponseEntity<?> upload(
+            @PathVariable Long materiaId,
+            @RequestParam("file") MultipartFile file) {
 
         try {
+
+        
+            Aluno aluno = (Aluno) SecurityContextHolder
+                    .getContext()
+                    .getAuthentication()
+                    .getPrincipal();
+
+            var materia = courseRepository.findById(materiaId)
+                    .orElseThrow(() -> new RuntimeException("Matéria não encontrada"));
+
+        
             String relativePath = fileStorageService.salvarArquivo(file, materiaId);
 
+        
             Arquivo arquivo = new Arquivo();
             arquivo.setNome(file.getOriginalFilename());
             arquivo.setTipo(file.getContentType());
             arquivo.setUrl(relativePath);
             arquivo.setDataUpload(LocalDateTime.now());
-            
-            arquivo.setMateria(courseRepository.findById(materiaId).get());
-            arquivo.setEnviadoPor(alunoRepository.findById(alunoId).get());
+            arquivo.setMateria(materia);
+            arquivo.setEnviadoPor(aluno);
 
             arquivoRepository.save(arquivo);
 
-            return ResponseEntity.ok("Arquivo enviado com sucesso: ");
-        }
+            return ResponseEntity.ok("Arquivo enviado com sucesso");
 
-        catch (Exception e) {
-            return ResponseEntity.status(500).body("Erro ao enviar arquivo: " + e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(500)
+                    .body("Erro ao enviar arquivo: " + e.getMessage());
         }
-        
-    }
+}
 
     @GetMapping("/materia/{materiaId}")
     public ResponseEntity<?> listarArquivosPorMateria(

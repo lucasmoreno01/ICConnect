@@ -41,7 +41,7 @@ public class Arquivo {
     @JoinColumn(name = "materia_id")
     private Materia materia;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "enviado_por_id", nullable = false)
     private Aluno enviadoPor;
-    
 }
