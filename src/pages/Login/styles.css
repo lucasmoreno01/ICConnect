@@ -1,3 +1,5 @@
+
+
 * {
   margin: 0;
   padding: 0;
@@ -37,8 +39,35 @@ form {
   width: 80%;
 }
 
+#app-input-label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 600;
+}
 
- 
+#app-input-label input {
+  padding: 16px;
+  font-size: 16px;
+  background-color: #e1e1e1;
+  color: #454545;
+  border: none;
+  border-radius: 16px;
+  margin-top: 8px;
+  width: 100%; 
+}
+
+#app-input-label input:focus {
+  outline: none;
+}
+
+#app-input-label input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 form button {
   padding: 16px;
   font-size: 16px;
@@ -56,6 +85,21 @@ form button {
 
 #register-button {
   background-color: #454545;
+}
+
+.error-message {
+  background-color: #fee;
+  color: #c00;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  text-align: center;
+  border: 1px solid #f99;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 @media (max-width: 1024px), (max-height: 500px) {

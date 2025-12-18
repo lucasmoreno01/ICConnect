@@ -1,12 +1,13 @@
 import type { JSX } from "react/jsx-runtime";
-import "./Styles.css";
 
 export default function AppInput(props: {
   type: string;
   name: string;
   label?: string;
   placeholder?: string;
-  inputContent?: string,
+  inputContent?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  disabled?: boolean;
 }): JSX.Element {
   return (
     <label id="app-input-label">
@@ -16,7 +17,8 @@ export default function AppInput(props: {
         name={props.name}
         placeholder={props.placeholder}
         defaultValue={props.inputContent}
-
+        onChange={props.onChange}
+        disabled={props.disabled}
       />
     </label>
   );
