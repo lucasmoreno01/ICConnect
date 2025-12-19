@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "./useMutation";
 import { AuthController } from "../api/controllers/authController";
+import { setAuthToken } from "../api/services/apiService";
 
-// hooks/useAuth.ts
+
 export function useLogin() {
   const navigate = useNavigate();
   return useMutation(AuthController.login, {
@@ -18,10 +19,14 @@ export function useLogin() {
         })
       );
       localStorage.setItem("expires", response.expiresAt);
+
+      setAuthToken(response.Token); // <- Adicione isso
+
       navigate("/courses");
     },
   });
 }
+
 
 export function useRegister() {
   const navigate = useNavigate();
