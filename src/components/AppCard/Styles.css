@@ -1,37 +1,46 @@
-
 .app-card {
-  background-color: #e3e3e3;
-  width: 400px;
-  max-height: 200px;
-  padding: 24px;
-  border-radius: 24px;
-  white-space: pre-line;
-  
+  background: #e3e3e3;
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+  min-width: 280px;
+  max-width: 340px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
+
 .card-row {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 12px;
+}
+
+.card-row h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
 }
 
 .card-dates {
   display: flex;
   flex-direction: column;
-  text-align: right;
+  align-items: flex-end;
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
 }
 
 .card-dates p {
   margin: 0;
-  font-weight: 600;
-  color: #585858;
 }
 
-.card-row h2 {
-  font-weight: 700;
-  color: #313131;
-}
-
-.card-row p {
-  font-weight: 600;
-  color: #585858;
+.content {
+  margin: 0;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.4;
 }

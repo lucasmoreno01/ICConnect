@@ -1,29 +1,25 @@
 import type { JSX } from "react";
-import "./Styles.css";
 
 export default function AppCard(props: {
   title: string;
   start?: string;
   end?: string;
   content: string;
-  eventUrl?: string;
+  onClick?: () => void;
 }): JSX.Element {
-
-  const handleClick = () => {
-    if (props.eventUrl) {
-      window.open(props.eventUrl, "_blank");
-    }
-  };
-
   return (
-    <div className="app-card" onClick={handleClick} style={{ cursor: props.eventUrl ? "pointer" : "default" }}>
-     <div className="card-row">
-  <h2>{props.title}</h2>
-  <div className="card-dates">
-    {props.start && <p>{props.start}</p>}
-    {props.end && <p>{props.end}</p>}
-  </div>
-</div>
+    <div
+      className="app-card"
+      onClick={props.onClick}
+      style={{ cursor: props.onClick ? "pointer" : "default" }}
+    >
+      <div className="card-row">
+        <h2>{props.title}</h2>
+        <div className="card-dates">
+          {props.start && <p>{props.start}</p>}
+          {props.end && <p>{props.end}</p>}
+        </div>
+      </div>
 
       <p
         className="content"

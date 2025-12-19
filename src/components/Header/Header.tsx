@@ -17,7 +17,6 @@ export default function Header() {
             <li><Link to="/home" className="menu-links">Home</Link></li>
             <li><Link to="/courses" className="menu-links">Matérias</Link></li>
             <li><Link to="/events" className="menu-links">Eventos</Link></li>
-            <li><Link to="/vacancies" className="menu-links">Vagas</Link></li>
             <li><Link to="/profile" className="menu-links">Meu Perfil</Link></li>
           </ul>
         </nav>
