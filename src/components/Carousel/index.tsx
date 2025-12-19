@@ -2,7 +2,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./Styles.css";
 import eventos from "../../assets/eventos.jpg";
 import materias from "../../assets/materias2.jpg";
-import vagas from "../../assets/vagas.jpg";
+import ai from "../../assets/ai.jpg";
+import quantum from "../../assets/quantum.jpg";
 import { Link } from "react-router-dom";
 
 export default function Carousel() {
@@ -14,7 +15,7 @@ export default function Carousel() {
         >
             <div className="carousel-inner">
 
-                {/* SLIDE 1 - MATÉRIAS */}
+                
                 <div className="carousel-item active">
                     <div className="slide-content">
                         <img src={materias} alt="Matérias" className="slide-image" />
@@ -28,21 +29,21 @@ export default function Carousel() {
                     </div>
                 </div>
 
-                {/* SLIDE 2 - VAGAS */}
+               
                 <div className="carousel-item">
                     <div className="slide-content">
-                        <img src={vagas} alt="Vagas" className="slide-image" />
+                        <img src={ai} alt="ai" className="slide-image" />
                         <div className="slide-text">
-                            <h1>As melhores oportunidades para você crescer</h1>
+                            <h1>Inteligência artificial: o alerta de mil especialistas sobre 'risco para a humanidade'</h1>
                             <p>
-                                Acompanhe vagas de estágio, trainee e posições júnior atualizadas. Conecte-se com empresas e acelere sua carreira em tecnologia.
+                                Na carta, eles pedem que as empresas que desenvolvem esse tipo de programa "pausem imediatamente, por pelo menos seis meses, o treinamento de sistemas de inteligência artificial mais poderosos que o GPT-4".
                             </p>
-                            <Link to={"/vacancies"} className="btn btn-primary links-home">Ver vagas</Link>
+                            <a href="https://www.correiobraziliense.com.br/tecnologia/2023/03/5083955-inteligencia-artificial-o-alerta-de-mil-especialistas-sobre-risco-para-a-humanidade.html?gad_source=1&gad_campaignid=22920091152&gbraid=0AAAAAphZalfiNf4I-7nFrV2FIO_sxLcWk&gclid=Cj0KCQiAjJTKBhCjARIsAIMC44_HKiBqQ0PSb5hayP0M2_3Z0dSrzE5VxPuLWTXzcJldP7b2Wlqn_GEaAjsuEALw_wcB#google_vignette" className="btn btn-primary links-home" target="_blank" rel="noopener noreferrer">Ler mais</a>
                         </div>
                     </div>
                 </div>
 
-                {/* SLIDE 3 - EVENTOS */}
+                
                 <div className="carousel-item">
                     <div className="slide-content">
                         <img src={eventos} alt="Eventos" className="slide-image" />
@@ -55,9 +56,26 @@ export default function Carousel() {
                         </div>
                     </div>
                 </div>
+
+                <div className="carousel-item">
+                    <div className="slide-content">
+                        <img src={quantum} alt="Quantum" className="slide-image" />
+                        <div className="slide-text">
+                            <h1>Brasil avança na corrida das tecnologias quânticas</h1>
+                            <p>
+                                O primeiro Laboratório de Tecnologias Quânticas do Centro Brasileiro de Pesquisas Físicas (CBPF), unidade vinculada ao Ministério da Ciência, Tecnologia e Inovação, terá papel estratégico para o desenvolvimento das tecnologias quânticas no país
+                            </p>
+                            <a href="https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias/2025/01/brasil-avanca-na-corrida-das-tecnologias-quanticas" className="btn btn-primary links-home" target="_blank" rel="noopener noreferrer">Ler mais</a>
+                        </div>
+                    </div>
+                </div>
+
+                
             </div>
 
-            {/* CONTROLES */}
+            
+
+            
             <button
                 className="carousel-control-prev"
                 type="button"

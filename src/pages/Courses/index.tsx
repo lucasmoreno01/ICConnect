@@ -52,19 +52,19 @@ export default function Courses() {
 
       <div className="container-courses">
 
-        <section className="top-box">
+        <div className="top-box">
 
           <div className="graduacao-box">
             <h2 className="graduacao-title">Sistemas de Informação</h2>
-            <button className="box-btn"><img className="seta-btn" src={arrow_down} alt="arrow_down" /></button>
+            {/* <button className="box-btn"><img className="seta-btn" src={arrow_down} alt="arrow_down" /></button> */}
           </div>
 
-          <div className="search-box">
+          {/* <div className="search-box">
             <img className="search-icon" src={search} alt="search-icon" />
             <input className="search-input" type="text" placeholder="Procurar disciplina" />
-          </div>
+          </div>  */}
 
-        </section>
+        </div>
 
 
         <div className="semestre">
