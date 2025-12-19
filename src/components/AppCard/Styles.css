@@ -8,6 +8,23 @@
   white-space: pre-line;
   
 }
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card-dates {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.card-dates p {
+  margin: 0;
+  font-weight: 600;
+  color: #585858;
+}
 
 .card-row h2 {
   font-weight: 700;
@@ -18,10 +35,3 @@
   font-weight: 600;
   color: #585858;
 }
-.card-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-

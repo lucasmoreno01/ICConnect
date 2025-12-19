@@ -1,130 +1,55 @@
-import { useState } from "react";
-import AppInput from "../../components/AppInput";
+import { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import "./Styles.css";
 import { useNavigate } from "react-router-dom";
+import { UserController, type UserDTO } from "../../api/controllers/userContoller";
 
 export default function Profile() {
-  const [activeSection, setActiveSection] = useState("edit-profile");
-  const [showDialog, setShowDialog] = useState(false);
+  const [user, setUser] = useState<UserDTO>({
+    name: "",
+    matricula: "",
+    email: "",
+  });
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const data = await UserController.getCurrent();
+        setUser(data);
+      } catch (err) {
+        console.error("Erro ao carregar usuário:", err);
+      }
+    };
+    fetchUser();
+  }, []);
 
   return (
     <>
       <Header />
 
       <main id="profile-page">
-        <aside id="profile-menu">
-          <button
-            value="edit-profile"
-            className={activeSection === "edit-profile" ? "active" : "inactive"}
-            onClick={() => setActiveSection("edit-profile")}
-          >
-            Editar perfil
-          </button>
+        <section className="profile-card">
+          <div className="profile-field">
+            <label>Nome:</label>
+            <span>{user.name}</span>
+          </div>
 
-          <button
-            value="change-password"
-            className={
-              activeSection === "change-password" ? "active" : "inactive"
-            }
-            onClick={() => setActiveSection("change-password")}
-          >
-            Alterar senha
-          </button>
+          <div className="profile-field">
+            <label>Matrícula:</label>
+            <span>{user.matricula}</span>
+          </div>
 
-          <button
-            value="exit"
-            className="exit-button"
-            onClick={() => navigate("/login")}
-          >
+          <div className="profile-field">
+            <label>E-mail UFBA:</label>
+            <span>{user.email}</span>
+          </div>
+
+          <button className="exit-button" onClick={() => navigate("/login")}>
             Sair
           </button>
-        </aside>
-
-        <section
-          id="user-info"
-          className={
-            activeSection === "edit-profile"
-              ? "section-active"
-              : "section-inactive"
-          }
-        >
-          <AppInput
-            type="text"
-            name="name-input"
-            label="Nome"
-            inputContent="João souza"
-          />
-          <AppInput
-            type="number"
-            name="registration-input"
-            label="Matrícula"
-            inputContent="222111009"
-          />
-          <AppInput
-            type="email"
-            name="email-input"
-            label="E-mail UFBA"
-            inputContent="joaosouza@ufba.br"
-          />
-
-          <div className="profile-btns">
-            <button id="save-btn">Salvar</button>
-            <button id="delete-btn" onClick={() => setShowDialog(true)}>
-              Deletar conta
-            </button>
-          </div>
         </section>
-
-        <section
-          id="change-password"
-          className={
-            activeSection === "change-password"
-              ? "section-active"
-              : "section-inactive"
-          }
-        >
-          <AppInput type="password" name="password-input" label="Nova Senha" />
-          <AppInput
-            type="password"
-            name="confirm-password-input"
-            label="Confirmar senha"
-          />
-
-          <div className="profile-btns">
-            <button id="save-btn">Salvar</button>
-          </div>
-        </section>
-
-        {showDialog && (
-          <div className="dialog-overlay">
-            <div className="dialog-box">
-              <h3>Tem certeza?</h3>
-              <p>
-                Você realmente deseja deletar sua conta? Essa ação é
-                irreversível.
-              </p>
-
-              <div className="dialog-actions">
-                <button className="cancel" onClick={() => setShowDialog(false)}>
-                  Cancelar
-                </button>
-
-                <button
-                  className="confirm"
-                  onClick={() => {
-                    setShowDialog(false);
-                    alert("Conta deletada!");
-                  }}
-                >
-                  Deletar
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
       </main>
     </>
   );
