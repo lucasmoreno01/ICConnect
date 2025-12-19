@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import "./Styles.css"
 import Header from "../../components/Header/Header";
 import arrow_down from "../../assets/arrow_down.svg";
@@ -51,24 +52,24 @@ export default function Courses() {
 
       <div className="container-courses">
 
-        <div className="top-box">
+        <section className="top-box">
 
           <div className="graduacao-box">
             <h2 className="graduacao-title">Sistemas de Informação</h2>
-            {/* <button type="button" className="box-btn"><img className="seta-btn" src={arrow_down} alt='arrow_down' /></button> */}
+            <button className="box-btn"><img className="seta-btn" src={arrow_down} alt="arrow_down" /></button>
           </div>
 
-          {/* <div className="search-box">
+          <div className="search-box">
             <img className="search-icon" src={search} alt="search-icon" />
             <input className="search-input" type="text" placeholder="Procurar disciplina" />
-          </div> */}
+          </div>
 
-        </div>
+        </section>
 
 
         <div className="semestre">
           <h3 className="semestre-title">1º semestre </h3>
-          <button type="button" className="box-btn btn" data-bs-toggle="collapse" data-bs-target="#card"><img className="seta-btn" src={arrow_up} alt='arrow_up' /></button>
+          <button className="box-btn btn" data-bs-toggle="collapse" data-bs-target="#card"><img className="seta-btn" src={arrow_down} alt="arrow" /></button>
         </div>
 
         <div className="courses collapse show" id="card">
@@ -118,7 +119,7 @@ export default function Courses() {
 
         <div className="semestre">
           <h3 className="semestre-title">2º semestre</h3>
-          <button type="button" className="box-btn btn" data-bs-toggle="collapse" data-bs-target="#card2"><img className="seta-btn" src={arrow_up} alt="arrow" /></button>
+          <button className="box-btn btn" data-bs-toggle="collapse" data-bs-target="#card2"><img className="seta-btn" src={arrow_down} alt="arrow" /></button>
         </div>
 
         <div className="courses collapse show" id="card2">
@@ -167,7 +168,7 @@ export default function Courses() {
 
         <div className="semestre">
           <h3 className="semestre-title">3º semestre</h3>
-          <button type="button" className="box-btn btn" data-bs-toggle="collapse" data-bs-target="#card3"><img className="seta-btn" src={arrow_up} alt="arrow" /></button>
+          <button className="box-btn btn" data-bs-toggle="collapse" data-bs-target="#card3"><img className="seta-btn" src={arrow_down} alt="arrow" /></button>
         </div>
 
         <div className="courses collapse show" id="card3">
@@ -215,7 +216,7 @@ export default function Courses() {
 
         <div className="semestre">
           <h3 className="semestre-title">4º semestre</h3>
-          <button type="button" className="box-btn btn" data-bs-toggle="collapse" data-bs-target="#card4"><img className="seta-btn" src={arrow_up} alt="arrow" /></button>
+          <button className="box-btn btn" data-bs-toggle="collapse" data-bs-target="#card4"><img className="seta-btn" src={arrow_down} alt="arrow" /></button>
         </div>
 
         <div className="courses collapse show" id="card4">
@@ -264,7 +265,7 @@ export default function Courses() {
 
         <div className="semestre">
           <h3 className="semestre-title">5º semestre</h3>
-          <button type="button" className="box-btn btn" data-bs-toggle="collapse" data-bs-target="#card5"><img className="seta-btn" src={arrow_up} alt="arrow" /></button>
+          <button className="box-btn btn" data-bs-toggle="collapse" data-bs-target="#card5"><img className="seta-btn" src={arrow_down} alt="arrow" /></button>
         </div>
 
         <div className="courses collapse show" id="card5">
@@ -313,7 +314,7 @@ export default function Courses() {
 
         <div className="semestre">
           <h3 className="semestre-title">6º semestre</h3>
-          <button type="button" className="box-btn btn" data-bs-toggle="collapse" data-bs-target="#card6"><img className="seta-btn" src={arrow_up} alt="arrow" /></button>
+          <button className="box-btn btn" data-bs-toggle="collapse" data-bs-target="#card6"><img className="seta-btn" src={arrow_down} alt="arrow" /></button>
         </div>
 
         <div className="courses collapse show" id="card6">
@@ -363,7 +364,7 @@ export default function Courses() {
 
         <div className="semestre">
           <h3 className="semestre-title">7º semestre</h3>
-          <button type="button" className="box-btn btn" data-bs-toggle="collapse" data-bs-target="#card7"><img className="seta-btn" src={arrow_up} alt="arrow" /></button>
+          <button className="box-btn btn" data-bs-toggle="collapse" data-bs-target="#card7"><img className="seta-btn" src={arrow_down} alt="arrow" /></button>
         </div>
 
         <div className="courses collapse show" id="card7">
@@ -413,7 +414,7 @@ export default function Courses() {
 
         <div className="semestre">
           <h3 className="semestre-title">9º semestre</h3>
-          <button type="button" className="box-btn btn" data-bs-toggle="collapse" data-bs-target="#card9"><img className="seta-btn" src={arrow_up} alt="arrow" /></button>
+          <button className="box-btn btn" data-bs-toggle="collapse" data-bs-target="#card9"><img className="seta-btn" src={arrow_down} alt="arrow" /></button>
         </div>
 
         <div className="courses collapse show" id="card9">
@@ -429,7 +430,7 @@ export default function Courses() {
 
         <div className="semestre">
           <h3 className="semestre-title">10º semestre</h3>
-          <button type="button" className="box-btn btn" data-bs-toggle="collapse" data-bs-target="#card10"><img className="seta-btn" src={arrow_up} alt="arrow" /></button>
+          <button className="box-btn btn" data-bs-toggle="collapse" data-bs-target="#card10"><img className="seta-btn" src={arrow_down} alt="arrow" /></button>
         </div>
 
         <div className="courses collapse show" id="card10">
